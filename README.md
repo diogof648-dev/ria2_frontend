@@ -1,16 +1,22 @@
-# ria2_frontend
+# RIA2 FRONTEND
 
-A new Flutter project.
+Frontend Flutter app for the RIA2 course.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Authentication
+- Graphs visualisation
 
-A few resources to get you started if this is your first Flutter project:
+## Getting started
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Prerequisites
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Android Studio ≥ 2025.3.1](https://developer.android.com/studio?utm_source=android-studio)
+- [Flutter SDK ≥ 3.38.9](https://docs.flutter.dev/install)
+
+### Configuration
+
+1. [Prepare environment for Flutter](https://docs.flutter.dev/tools/android-studio)
+2. [Create a "Medium Phone" virtual device with Android 16 (using API 36)](https://developer.android.com/studio/run/managing-avds)
+
+
