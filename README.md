@@ -4,7 +4,7 @@ Frontend Flutter app for the RIA2 course.
 
 ## Features
 
-- Authentication
+- Authentication using IAM service
 - Graphs visualisation
 
 ## Getting started
