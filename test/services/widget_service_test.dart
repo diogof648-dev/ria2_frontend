@@ -7,7 +7,6 @@ import 'package:ria2_frontend/services/widget_service.dart';
 import 'widget_service_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<http.Client>()])
-
 void main() {
   const baseUrl = 'https://api.example.com';
   late MockClient mockClient;
@@ -36,17 +35,17 @@ void main() {
     });
 
     test('throws FormatException when response body is not a map', () async {
-      when(mockClient.get(Uri.parse('$baseUrl/widgets'))).thenAnswer(
-        (_) async => http.Response('[1,2,3]', 200),
-      );
+      when(
+        mockClient.get(Uri.parse('$baseUrl/widgets')),
+      ).thenAnswer((_) async => http.Response('[1,2,3]', 200));
 
       expect(service.listWidgets, throwsA(isA<FormatException>()));
     });
 
     test('throws Exception when status code is not 200', () async {
-      when(mockClient.get(Uri.parse('$baseUrl/widgets'))).thenAnswer(
-        (_) async => http.Response('error', 500),
-      );
+      when(
+        mockClient.get(Uri.parse('$baseUrl/widgets')),
+      ).thenAnswer((_) async => http.Response('error', 500));
 
       expect(service.listWidgets, throwsA(isA<Exception>()));
     });
@@ -67,17 +66,17 @@ void main() {
     });
 
     test('throws FormatException when response body is not a string', () async {
-      when(mockClient.get(Uri.parse('$baseUrl/widgets/abc'))).thenAnswer(
-        (_) async => http.Response('{"url":"x"}', 200),
-      );
+      when(
+        mockClient.get(Uri.parse('$baseUrl/widgets/abc')),
+      ).thenAnswer((_) async => http.Response('{"url":"x"}', 200));
 
       expect(() => service.getUrl('abc'), throwsA(isA<FormatException>()));
     });
 
     test('throws Exception when status code is not 200', () async {
-      when(mockClient.get(Uri.parse('$baseUrl/widgets/abc'))).thenAnswer(
-        (_) async => http.Response('not found', 404),
-      );
+      when(
+        mockClient.get(Uri.parse('$baseUrl/widgets/abc')),
+      ).thenAnswer((_) async => http.Response('not found', 404));
 
       expect(() => service.getUrl('abc'), throwsA(isA<Exception>()));
     });
