@@ -52,7 +52,7 @@ jobs:
           fi
 
       - name: 🏗️ Build APKs
-        run: flutter build apk --dart-define=API_BASE_URL=${{ vars.API_BASE_URL }} --${{ steps.image-tag.outputs.type }} --split-per-abi
+        run: flutter build apk --dart-define=API_BASE_URL=${{ vars.API_BASE_URL }} --${{ steps.image-tag.outputs.type }}
 
       - name: 📦 Prepare artifacts
         run: |
