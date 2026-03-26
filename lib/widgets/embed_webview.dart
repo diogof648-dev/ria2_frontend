@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ria2_frontend/widgets/custom_error.dart';
 import 'package:ria2_frontend/widgets/loading.dart';
+import 'package:webview_flutter_android/webview_flutter_android.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class EmbedWebView extends StatefulWidget {
@@ -15,7 +16,6 @@ class EmbedWebView extends StatefulWidget {
 }
 
 class _EmbedWebViewState extends State<EmbedWebView> {
-  late final PlatformWebViewControllerCreationParams params;
   late final WebViewController _controller;
 
   bool _isLoading = true;
@@ -39,7 +39,8 @@ class _EmbedWebViewState extends State<EmbedWebView> {
 
     _parsedUri = parsed;
 
-    _controller = WebViewController()
+    final params = const PlatformWebViewControllerCreationParams();
+    _controller = WebViewController.fromPlatformCreationParams(params)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(
         NavigationDelegate(
@@ -67,6 +68,11 @@ class _EmbedWebViewState extends State<EmbedWebView> {
         ),
       )
       ..loadRequest(parsed);
+
+    if (_controller.platform is AndroidWebViewController) {
+      final androidController = _controller.platform as AndroidWebViewController;
+      androidController.setMixedContentMode(MixedContentMode.alwaysAllow);
+    }
   }
 
   @override
