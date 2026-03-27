@@ -47,7 +47,7 @@ jobs:
             echo "tag=latest" >> "$GITHUB_OUTPUT"
             echo "type=release" >> "$GITHUB_OUTPUT"
           else
-            echo "tag=test" >> "$GITHUB_OUTPUT"
+            echo "tag=stage" >> "$GITHUB_OUTPUT"
             echo "type=debug" >> "$GITHUB_OUTPUT"
           fi
 
