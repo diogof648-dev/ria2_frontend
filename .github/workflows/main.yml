@@ -97,4 +97,4 @@ jobs:
 
       - name: Sync to S3
         run: |
-          aws s3 mv ria2-app.apk "s3://${{ secrets.S3_BUCKET }}/ria2-app.apk"
+          aws s3 mv artifacts/ria2-app.apk "s3://${{ secrets.S3_BUCKET }}/ria2-app.apk"
