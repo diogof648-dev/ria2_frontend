@@ -65,7 +65,7 @@ jobs:
       - name: 🏗️ Build APK
         run: flutter build apk \
               --dart-define=API_BASE_URL="${{ vars.API_BASE_URL }}" \
-              --${BUILD_TYPE}
+              --"${{ needs.prepare.outputs.build_type }}"
 
       - name: 📦 Prepare artifacts
         run: |
