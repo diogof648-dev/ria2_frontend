@@ -63,9 +63,7 @@ jobs:
         run: flutter test --coverage
 
       - name: 🏗️ Build APK
-        run: flutter build apk \
-              --dart-define=API_BASE_URL="${{ vars.API_BASE_URL }}" \
-              --${{ needs.prepare.outputs.build_type }}
+        run: flutter build apk --dart-define=API_BASE_URL=${{ vars.API_BASE_URL }} --${{ needs.prepare.outputs.build_type }}
 
       - name: 📦 Prepare artifacts
         run: |
